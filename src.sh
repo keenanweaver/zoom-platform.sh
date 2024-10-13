@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # shellcheck enable=avoid-nullary-conditions,check-unassigned-uppercase
 
 #__LICENSE_HERE__
@@ -809,7 +809,7 @@ for file in "$PROTON_SHORTCUTS_PATH"/*.desktop; do
     _iconpath="$PROTON_SHORTCUTS_PATH/icons/$(find "$PROTON_SHORTCUTS_PATH/icons" -type f -name "*$_iconname.png" -printf '%P\n' | sort -n -tx -k1 -r | head -n 1)"
 
     cat >"$ZOOM_SHORTCUTS_PATH/$_filename.sh" <<EOL
-#!/bin/sh
+#!/usr/bin/env bash
 export GAMEID="$UMU_ID"
 export WINEPREFIX="$INSTALL_PATH"
 export STORE="zoomplatform"
@@ -848,7 +848,7 @@ done
 
 # Create uninstaller
 cat >"$INSTALL_PATH/uninstall.sh" <<EOL
-#!/bin/sh
+#!/usr/bin/env bash
 printf "You are about to remove %s's data and shortcuts. Are you sure you want to continue? [y/N]\n" "$GAME_NAME_SAFE"
 read in
 if [ "\$in" = "y" ] || [ "\$in" = "yes" ] || [ "\$in" = "Y" ] || [ "\$in" = "YES" ]; then
